@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7d8e9; /* Define a cor de fundo como rosa claro */
+}
+
+#conteudo {
+    text-align: center;
+}
+
+#texto-cima {
+    font-size: 10vw; /* Aumenta o tamanho da fonte em relação à largura da viewport */
+    color: #ff69b4; /* Altera a cor do texto para um tom rosa */
+    font-family: 'Great Vibes', cursive;  /* Aplica uma fonte mais romântica */
+    margin-bottom: 10px;
+    
+}
+
+#texto-baixo {
+    font-size: 6.5vw; /* Aumenta o tamanho da fonte em relação à largura da viewport */
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
+#imagem {
+    width: 70vw; /* Define a largura da imagem em relação à largura da viewport */
+    height: auto; /* Define a altura da imagem de forma proporcional */
+    max-width: 650px; /* Define a largura máxima da imagem */
+    max-height: 650px; /* Define a altura máxima da imagem */
+}
+
+#botoes {
+    margin-top: 2vw; /* Ajusta a margem superior em relação à largura da viewport */
+    text-align: center; /* Centraliza horizontalmente os botões */
+}
+
+#botoes button {
+    display: block; /* Altera para display block para que fiquem um em cima do outro */
+    margin: 1vw auto; /* Centraliza horizontalmente os botões e define a margem em relação à largura da viewport */
+    background-color: black;
+    border: 6px solid #ff6ec7;
+    color: white;
+    padding: 4vw 6vw; /* Define o padding em relação à largura da viewport */
+    border-radius: 15px;
+    margin-bottom: 1vw; /* Adiciona margem inferior para separação entre os botões em relação à largura da viewport */
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+.botao-nao-clicado {
+    position: absolute;
+    transition: top 0.s, left 0.s;
+}
