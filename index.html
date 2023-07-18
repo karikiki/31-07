@@ -1,32 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>2 Anos de Namoro</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap"> 
-        
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"> 
+    <title>Contador de Tempo 2 anos de namoro</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+    <style>
+        body {
+            background-color: #f7d8e9;
+            font-family: 'Amatic SC', cursive;
+            
+        }
 
-        
-        
-    <link rel="stylesheet" href="style.css"> 
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 15vw;
+            text-align: center;
+            color: #ff69b4;
+        }
 
+        #contador, #horas,#minutos,#segundos {
+            font-size: 10vw;
+            text-align: center;
+            color: #ff69b4;
+        }
+        
+    
+        .unidade {
+            font-size: 10vw;
+        }
+
+        p {
+            text-align: center;
+            font-size: 10vw;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Função para atualizar o contador
+            function atualizarContador() {
+                // Obter a data e hora atual usando uma API online
+                $.getJSON("http://worldtimeapi.org/api/timezone/Etc/UTC", function(data) {
+                    // Obter a data e hora atual
+                    var agora = new Date(data.datetime);
+
+                    // Definir a data e hora de destino (31/07/2023 19:00:00)
+                    var destino = new Date("July 18, 2023 19:00:00");
+
+                    // Calcular a diferença entre as duas datas em milissegundos
+                    var diferenca = destino.getTime() - agora.getTime();
+
+                    // Converter a diferença para dias, horas, minutos e segundos
+                    var dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+                    var horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+                    var segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+                    // Exibir o contador no formato "dias:horas:minutos:segundos"
+                    $("#contador").text(dias);
+                    $("#unidade-dias").text(" Dias ");
+                    $("#horas").text(horas);
+                    $("#unidade-horas").text(" Hrs ");
+                    $("#minutos").text(minutos);
+                    $("#unidade-minutos").text(" Min ");
+                    $("#segundos").text(segundos);
+                    $("#unidade-segundos").text(" Seg ");
+
+                    // Verificar se o tempo chegou ao destino
+                    if (diferenca <= 0) {
+                        // Redirecionar para a página "inicio.html"
+                        window.location.href = "inicio.html";
+                    }
+                });
+            }
+
+            // Chamar a função inicialmente
+            atualizarContador();
+
+            // Atualizar o contador a cada segundo
+            setInterval(atualizarContador, 1000);
+        });
+    </script>
 </head>
 <body>
-    <div id="conteudo">
-        <div id="texto-cima">Feliz 2 Anos de Namoro!!!</div>
-        <img id="imagem" src="Bb.jpg" alt="Imagem 1">
-        <div id="texto-baixo">Você Vai Estar Comigo PATOdo Sempre?</div>
-    </div>
-    <div id="botoes">
-        <button onclick="mostrarMensagemSim()">Sim</button>
-        <button onclick="alterarImagem()" id="botao-nao" class="botao-nao-clicado">Não</button>
-    </div>
-
-    <script src="script.js"></script>
-    
-    <script> var imagem = document.getElementById('imagem'); imagem.onload = function() { if (imagem.src.includes('Aa.gif')) { document.getElementById('texto-baixo').innerHTML = 'Você Vai Estar Comigo PATOdo Sempre?<br>'; } }; </script>
-    
+    <h1>2 anos de namoro</h1>
+    <p>
+        Tempo restante:
+        </br>
+        <span id="contador"></span><span class="unidade" id="unidade-dias"></span>
+        <span id="horas"></span><span class="unidade" id="unidade-horas"></span>
+        <span id="minutos"></span><span class="unidade" id="unidade-minutos"></span>
+        <span id="segundos"></span><span class="unidade" id="unidade-segundos"></span>
+    </p>
 </body>
-
 </html>
