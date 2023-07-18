@@ -8,7 +8,6 @@
         body {
             background-color: #f7d8e9;
             font-family: 'Amatic SC', cursive;
-            
         }
 
         h1 {
@@ -18,13 +17,12 @@
             color: #ff69b4;
         }
 
-        #contador, #horas,#minutos,#segundos {
+        #contador, #horas, #minutos, #segundos {
             font-size: 10vw;
             text-align: center;
             color: #ff69b4;
         }
-        
-    
+
         .unidade {
             font-size: 10vw;
         }
@@ -36,12 +34,12 @@
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Função para atualizar o contador
             function atualizarContador() {
-                // Obter a data e hora atual usando uma API online
-                $.getJSON("http://worldtimeapi.org/api/timezone/Etc/UTC", function(data) {
-                    // Obter a data e hora atual
+                // Obter a data e hora atual usando a API WorldTimeAPI
+                $.getJSON("https://worldtimeapi.org/api/timezone/America/Sao_Paulo", function (data) {
+                    // Obter a data e hora atual de Brasília
                     var agora = new Date(data.datetime);
 
                     // Definir a data e hora de destino (31/07/2023 19:00:00)
@@ -86,7 +84,7 @@
     <h1>2 anos de namoro</h1>
     <p>
         Tempo restante:
-        </br>
+        <br>
         <span id="contador"></span><span class="unidade" id="unidade-dias"></span>
         <span id="horas"></span><span class="unidade" id="unidade-horas"></span>
         <span id="minutos"></span><span class="unidade" id="unidade-minutos"></span>
