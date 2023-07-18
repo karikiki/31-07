@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+    <style>
+        body {
+            font-family: 'Amatic SC', cursive;
+            font-size: 6.5vw;
+            background-color: #f7d8e9;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 10vw;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+            font-size: 6.5vw;
+        }
+        .answers label {
+            display: block;
+        }
+        #verify-button {
+          
+            display: block;
+            margin: 1vw auto;
+            background-color: black;
+            border: 6px solid #ff6ec7;
+            color: white;
+            padding: 4vw 6vw;
+            border-radius: 15px;
+            margin-bottom: 1vw;
+            font-size: 3vw;
+            font-weight: bold;
+       
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz sobre nós</h1>
+    <div class="question">
+        <p>1. Qual é a fruta que o Kevin mais gosta?</p>
+        <div class="answers">
+            <label><input type="radio" name="q1" value="Uva"> Uva</label>
+            <label><input type="radio" name="q1" value="Abacaxi"> Abacaxi</label>
+            <label><input type="radio" name="q1" value="Melancia"> Melancia</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>2. Qual foi o local onde tivemos nosso primeiro encontro (depois que comecei a trabalhar)?</p>
+        <div class="answers">
+            <label><input type="radio" name="q2" value="Mc Donalds"> Mc Donalds</label>
+            <label><input type="radio" name="q2" value="Açaí do posto de gasolina"> Açaí do posto de gasolina</label>
+            <label><input type="radio" name="q2" value="Lojinha de coxinha ruim"> Lojinha de coxinha ruim</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>3. Quem de nós disse "eu te amo" primeiro?</p>
+        <div class="answers">
+            <label><input type="radio" name="q3" value="Júlia"> Júlia</label>
+            <label><input type="radio" name="q3" value="Kevin"> Kevin</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>4. Quem costuma ser o mais organizado entre nós dois?</p>
+        <div class="answers">
+            <label><input type="radio" name="q4" value="Júlia"> Júlia</label>
+            <label><input type="radio" name="q4" value="Kevin"> Kevin</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>5. Qual foi o nosso primeiro filme que assistimos juntos no cinema (2019)?</p>
+        <div class="answers">
+            <label><input type="radio" name="q5" value="Toy story 4"> Toy story 4</label>
+            <label><input type="radio" name="q5" value="Gato de botas"> Gato de botas</label>
+            <label><input type="radio" name="q5" value="Pets – A Vida Secreta dos bichos"> Pets – A Vida Secreta dos bichos</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>6. Onde foi o primeiro momento mais constrangedor de nós dois juntos?</p>
+        <div class="answers">
+            <label><input type="radio" name="q6" value="Chama"> Chama</label>
+            <label><input type="radio" name="q6" value="Na Loja de Açaí do posto de Gasolina"> Na Loja de Açaí do posto de Gasolina</label>
+            <label><input type="radio" name="q6" value="Sua casa no seu aniversário"> Sua casa no seu aniversário</label>
+        </div>
+    </div>
+    <div class="question">
+        <p>7. Qual é o nosso apelido mais carinhoso um para o outro?</p>
+        <div class="answers">
+            <label><input type="radio" name="q7" value="Macaco(a)"> Macaco(a)</label>
+            <label><input type="radio" name="q7" value="Amir"> Amir</label>
+            <label><input type="radio" name="q7" value="Musquitinha(o)"> Musquitinha(o)</label>
+        </div>
+    </div>
+    <button id="verify-button" onclick="verifyAnswers()">Verificar</button>
+
+    <script>
+        function verifyAnswers() {
+            var q1 = document.querySelector('input[name="q1"]:checked');
+            var q2 = document.querySelector('input[name="q2"]:checked');
+            var q3 = document.querySelector('input[name="q3"]:checked');
+            var q4 = document.querySelector('input[name="q4"]:checked');
+            var q5 = document.querySelector('input[name="q5"]:checked');
+            var q6 = document.querySelector('input[name="q6"]:checked');
+            var q7 = document.querySelector('input[name="q7"]:checked');
+
+            if (q1 && q2 && q3 && q4 && q5 && q6 && q7) {
+                var answers = [q1.value, q2.value, q3.value, q4.value, q5.value, q6.value, q7.value];
+                var correctAnswers = ["Abacaxi", "Lojinha de coxinha ruim", "Kevin", "Júlia", "Toy story 4", "Na Loja de Açaí do posto de Gasolina", "Amir"];
+                var allCorrect = true;
+
+                for (var i = 0; i < answers.length; i++) {
+                    if (answers[i] !== correctAnswers[i]) {
+                        allCorrect = false;
+                        break;
+                    }
+                }
+
+                if (allCorrect) {
+                    window.location.href = "final.html";
+                } else {
+                    alert("Respostas incorretas. Tente novamente.");
+                }
+            } else {
+                alert("Por favor, responda a todas as perguntas.");
+            }
+        }
+    </script>
+</body>
+</html>

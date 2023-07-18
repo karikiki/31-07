@@ -7,7 +7,8 @@ window.onload = function() {
 };
 
 function mostrarMensagemSim() {
-    alert("Sabia ♡ Senha:128√e980(guarde essa senha ksksksk)");
+    alert("Sabia ♡");
+    window.location.href = "quiz.html"; // Redireciona para o arquivo "quiz.html" 
 }
 
 function alterarImagem() {
