@@ -7,7 +7,7 @@ window.onload = function() {
 };
 
 function mostrarMensagemSim() {
-    alert("Sabia ♡");
+    alert("Sabia ♡ Senha:128√e980(guarde essa senha ksksksk)");
 }
 
 function alterarImagem() {
